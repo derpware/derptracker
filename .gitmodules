@@ -1,0 +1,6 @@
+[submodule "lib/foursquare"]
+	path = lib/foursquare
+	url = git://github.com/jmathai/foursquare-async.git
+[submodule "lib/cosm"]
+	path = lib/cosm
+	url = git://github.com/MunGell/PachubeAPI.git
