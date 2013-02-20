@@ -4,3 +4,6 @@
 [submodule "lib/cosm"]
 	path = lib/cosm
 	url = git://github.com/MunGell/PachubeAPI.git
+[submodule "lib/trakt"]
+	path = lib/trakt
+	url = git://github.com/wnielson/php-trakt.git
