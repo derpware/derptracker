@@ -1,8 +1,5 @@
 <?php
-
-require_once 'config.php';
 require_once 'lib/trakt/trakt.php';
-require_once 'lib/cosm/PachubeAPI.php';
 
 $pachube = new PachubeAPI($cosm["apikey"]);
 

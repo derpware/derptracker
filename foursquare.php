@@ -1,9 +1,6 @@
 <?php
-
-require_once 'config.php';
 require_once 'lib/foursquare/EpiCurl.php';
 require_once 'lib/foursquare/EpiFoursquare.php';
-require_once 'lib/cosm/PachubeAPI.php';
 
 $pachube = new PachubeAPI($cosm["apikey"]);
 
