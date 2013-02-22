@@ -3,8 +3,8 @@ require_once 'config.php';
 require_once 'lib/cosm/PachubeAPI.php';
 require_once 'DataProvider.interface.php';
 
-include('foursquare.php');
-include('trakt.php');
+include('provider/foursquare.php');
+include('provider/trakt.php');
 
 function sendToCosm($data, $provider) {	
 	global $cosm;
