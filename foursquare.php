@@ -20,14 +20,12 @@ class FoursquareProvider implements DataProvider {
 		$foursquareapi = new EpiFoursquare($this->config["clientID"], $this->config["clientSecret"], $this->config["accesstoken"]);
 
 		$checkin = $foursquareapi->get('/users/self');
-		$checkins 	= json_decode($checkin->responseText)->response->user->checkins->count;
-		$lat		= json_decode($checkin->responseText)->response->user->checkins->items[0]->venue->location->lat;
-		$lng		= json_decode($checkin->responseText)->response->user->checkins->items[0]->venue->location->lng;
+		$user = json_decode($checkin->responseText)->response->user;
 		
 		$data = array(
-			"checkins" => $checkins,
-			"latitude" => $lat,
-			"longitude" => $lng
+			"checkins" => $user->checkins->count,
+			"latitude" => $user->checkins->items[0]->venue->location->lat,
+			"longitude" => $user->checkins->items[0]->venue->location->lng
 			);
 		return $data;
 	}
