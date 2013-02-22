@@ -1,9 +1,33 @@
 <?php
 require_once 'config.php';
 require_once 'lib/cosm/PachubeAPI.php';
+require_once 'DataProvider.interface.php';
 
-if($foursquare["active"])
-	include('foursquare.php');
+include('foursquare.php');
+include('trakt.php');
 
-if($trakt["active"])
-	include('trakt.php');
+function sendToCosm($data, $provider) {	
+	global $cosm;
+	
+	foreach ($data as $item => $value) {
+		$streams[] = array("id" => "$item", "current_value" => "$value");
+	}
+
+	$cosm_data = array("datastreams" => $streams);
+	$cosm_json = json_encode($cosm_data);
+	
+	$pachube = new PachubeAPI($cosm["apikey"]);
+	$pachube->updateFeed("json", $cosm["feeds"][$provider->getName()], $cosm_json);
+}
+
+$providers = array_filter(get_declared_classes(), function($className) {
+	return in_array('DataProvider', class_implements($className));
+});
+
+foreach ($providers as $provider_class) {
+	$provider = new $provider_class();
+	if ($provider->isActive()) {
+		sendToCosm($provider->getData(), $provider);
+	}
+}
+
