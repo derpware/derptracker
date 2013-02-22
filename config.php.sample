@@ -1,6 +1,8 @@
 <?php
 // COSM CONFIG
 $cosm["apikey"]			= "APIKEY";
+$cosm["feeds"]["foursquare"] = "FEEDID";
+$cosm["feeds"]["trakt"] = "FEEDID";
 
 // FOURSQUARE CONFIG
 $foursquare["active"] 		= FALSE;
@@ -8,7 +10,6 @@ $foursquare["clientID"] 	= "CLIENTID";
 $foursquare["clientSecret"] 	= "CLIENTSECRET";
 $foursquare["code"]		= "CODE";
 $foursquare["accesstoken"]	= "ACCESSTOKEN";
-$foursquare["feedid"]		= "FEEDID";
 $foursquare["username"]		= "USERNAME";
 
 // TRAKT CONFIG
@@ -16,4 +17,3 @@ $trakt["active"]                = TRUE;
 $trakt["apikey"]		= "APIKEY";
 $trakt["username"]              = "USERNAME";
 $trakt["password"]              = "PASSWORD";
-$trakt["feedid"]		= "FEEDID";

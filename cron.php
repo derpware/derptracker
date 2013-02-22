@@ -6,6 +6,20 @@ require_once 'DataProvider.interface.php';
 include('foursquare.php');
 include('trakt.php');
 
+function sendToCosm($data, $provider) {	
+	global $cosm;
+	
+	foreach ($data as $item => $value) {
+		$streams[] = array("id" => "$item", "current_value" => "$value");
+	}
+
+	$cosm_data = array("datastreams" => $streams);
+	$cosm_json = json_encode($cosm_data);
+	
+	$pachube = new PachubeAPI($cosm["apikey"]);
+	$pachube->updateFeed("json", $cosm["feeds"][$provider->getName()], $cosm_json);
+}
+
 $providers = array_filter(get_declared_classes(), function($className) {
 	return in_array('DataProvider', class_implements($className));
 });
@@ -13,7 +27,7 @@ $providers = array_filter(get_declared_classes(), function($className) {
 foreach ($providers as $provider_class) {
 	$provider = new $provider_class();
 	if ($provider->isActive()) {
-		print_r($provider->getData());
+		sendToCosm($provider->getData(), $provider);
 	}
 }
-	
+

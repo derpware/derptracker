@@ -9,6 +9,10 @@ class TraktProvider implements DataProvider {
 		$this->config = $trakt;
 	}
 	
+	function getName() {
+		return "trakt";
+	}
+	
 	function isActive() {
 		return $this->config["active"];
 	}

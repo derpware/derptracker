@@ -10,6 +10,10 @@ class FoursquareProvider implements DataProvider {
 		$this->config = $foursquare;
 	}
 	
+	function getName() {
+		return "foursquare";
+	}
+		
 	function isActive() {
 		return $this->config["active"];
 	}
