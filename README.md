@@ -11,10 +11,9 @@ Derp services this thing supports:
 ## Installation
 1. Download the code.
 2. Put it on some server or other derp computer that runs 24/7.
-3. Get a Cosm API key.
-4. Register a foursquare application [here](https://foursquare.com/developers/apps).
-5. Fill in the data in config.php
-6. Call cron.php from a cron job somewhat regularly, like every five minutes.
+3. Get a Cosm API key and put it in config.php
+4. Set up individual services in config.php. Take a look at the [wiki](https://github.com/derpware/derptracker/wiki) to see how.
+5. Call cron.php from a cron job somewhat regularly, like every five minutes.
 
 ## License
 Licensed under MIT license. For details, see the LICENSE file
