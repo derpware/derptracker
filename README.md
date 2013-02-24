@@ -5,6 +5,7 @@ The derptracker tracks all your derp data from all those derp post privacy servi
 Derp services this thing supports:
 * Foursquare
 * trakt.tv
+* put.io
 
 ## Installation
 1. Download the code.
