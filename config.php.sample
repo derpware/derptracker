@@ -4,6 +4,7 @@ $cosm["apikey"]			= "APIKEY";
 $cosm["feeds"]["foursquare"] = "FEEDID";
 $cosm["feeds"]["trakt"] = "FEEDID";
 $cosm["feeds"]["putio"] = "FEEDID";
+$cosm["feeds"]["withings"] = "FEEDID";
 
 // FOURSQUARE CONFIG
 $foursquare["active"] 		= FALSE;
@@ -22,3 +23,9 @@ $trakt["password"]              = "PASSWORD";
 // PUT.IO CONFIG
 $putio["active"]		= FALSE;
 $putio["apikey"]		= "OAUTH_TOKEN";
+
+// WITHINGS CONFIG
+$withings["active"]		= FALSE;
+$withings["userid"]		= 0;
+$withings["mail"]		= "MAIL";
+$withings["password"] 	= "PASSWORD;

@@ -6,6 +6,7 @@ require_once 'DataProvider.interface.php';
 include('provider/foursquare.php');
 include('provider/trakt.php');
 include('provider/putio.php');
+include('provider/withings.php');
 
 function sendToCosm($data, $provider) {	
 	global $cosm;

@@ -6,6 +6,7 @@ Derp services this thing supports:
 * Foursquare
 * trakt.tv
 * put.io
+* Withings
 
 ## Installation
 1. Download the code.
