@@ -7,3 +7,6 @@
 [submodule "lib/trakt"]
 	path = lib/trakt
 	url = git://github.com/wnielson/php-trakt.git
+[submodule "lib/putio"]
+	path = lib/putio
+	url = git://github.com/nicoSWD/put.io-api-v2.git

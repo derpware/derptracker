@@ -3,6 +3,7 @@
 $cosm["apikey"]			= "APIKEY";
 $cosm["feeds"]["foursquare"] = "FEEDID";
 $cosm["feeds"]["trakt"] = "FEEDID";
+$cosm["feeds"]["putio"] = "FEEDID";
 
 // FOURSQUARE CONFIG
 $foursquare["active"] 		= FALSE;
@@ -13,7 +14,11 @@ $foursquare["accesstoken"]	= "ACCESSTOKEN";
 $foursquare["username"]		= "USERNAME";
 
 // TRAKT CONFIG
-$trakt["active"]                = TRUE;
+$trakt["active"]                = FALSE;
 $trakt["apikey"]		= "APIKEY";
 $trakt["username"]              = "USERNAME";
 $trakt["password"]              = "PASSWORD";
+
+// PUT.IO CONFIG
+$putio["active"]		= FALSE;
+$putio["apikey"]		= "OAUTH_TOKEN";
