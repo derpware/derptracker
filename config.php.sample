@@ -5,6 +5,7 @@ $cosm["feeds"]["foursquare"] = "FEEDID";
 $cosm["feeds"]["trakt"] = "FEEDID";
 $cosm["feeds"]["putio"] = "FEEDID";
 $cosm["feeds"]["withings"] = "FEEDID";
+$cosm["feeds"]["appnet"] = "FEEDID";
 
 // FOURSQUARE CONFIG
 $foursquare["active"] 		= FALSE;
@@ -29,3 +30,7 @@ $withings["active"]		= FALSE;
 $withings["userid"]		= 0;
 $withings["mail"]		= "MAIL";
 $withings["password"] 	= "PASSWORD;
+
+// APP.NET CONFIG
+$appnet["active"]	= FALSE;
+$appnet["userid"]	= "USERID";
