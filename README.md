@@ -3,9 +3,10 @@ The derptracker tracks all your derp data from all those derp post privacy servi
 
 ## Services
 Derp services this thing supports:
+* App.net
 * Foursquare
-* trakt.tv
 * put.io
+* trakt.tv
 * Withings
 
 ## Installation
