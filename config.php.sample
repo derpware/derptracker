@@ -29,8 +29,14 @@ $putio["apikey"]		= "OAUTH_TOKEN";
 $withings["active"]		= FALSE;
 $withings["userid"]		= 0;
 $withings["mail"]		= "MAIL";
-$withings["password"] 	= "PASSWORD;
+$withings["password"] 	= "PASSWORD";
 
 // APP.NET CONFIG
 $appnet["active"]	= FALSE;
 $appnet["userid"]	= "USERID";
+
+// MAIL CONFIG
+$mail["active"]	= FALSE;
+$mail["mailbox"]	= "{mail.example.com:993/imap/ssl}";
+$mail["username"]	= "USERNAME";
+$mail["password"]	= "PASSWORD";
