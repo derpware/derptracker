@@ -8,6 +8,8 @@ include('provider/trakt.php');
 include('provider/putio.php');
 include('provider/withings.php');
 include('provider/appnet.php');
+include('provider/mail.php');
+
 
 function sendToCosm($data, $provider) {	
 	global $cosm;
