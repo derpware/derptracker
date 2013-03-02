@@ -8,6 +8,7 @@ Derp services this thing supports:
 * put.io
 * trakt.tv
 * Withings
+* eMail (IMAP/POP3)
 
 ## Installation
 1. Download the code.
