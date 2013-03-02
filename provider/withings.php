@@ -29,12 +29,13 @@ class WithingsProvider implements DataProvider {
 		$user->setLimit(1);
 		$measuresgroups = $user->getMeasures();
 		$group = $measuresgroups[0];
+		$measures = $group->getMeasures();
 
 		$data = array(
-			"weight" 			=> $group->getMeasures()[0]->getValue(),
-			"fat_free_mass"		=> $group->getMeasures()[1]->getValue(),
-			"fat_ratio"			=> $group->getMeasures()[2]->getValue(),
-			"fat_mass_weight" 	=> $group->getMeasures()[3]->getValue()
+			"weight" 			=> $measures[0]->getValue(),
+			"fat_free_mass"		=> $measures[1]->getValue(),
+			"fat_ratio"			=> $measures[2]->getValue(),
+			"fat_mass_weight" 	=> $measures[3]->getValue()
 			);
 		return $data;
 	}
