@@ -29,6 +29,13 @@ class MailProvider implements DataProvider {
 			$data["quota_limit"] = $storage['limit'];
 		}
  
+		$data["inbox_total"] = imap_num_msg($mbox);
+		$data["inbox_unread"] = count(imap_search($mbox,'UNSEEN'));
+		$data["inbox_recent"] = imap_num_recent($mbox);
+		$data["inbox_flagged"] = count(imap_search($mbox,'FLAGGED'));
+		$data["inbox_answered"] = count(imap_search($mbox,'ANSWERED'));
+ 
+ 
 		$count = 0;
 		$unread = 0;
 		$recent = 0;
@@ -47,11 +54,11 @@ class MailProvider implements DataProvider {
 				$count += imap_num_msg($mbox);
 				$recent += imap_num_recent($mbox);
 			}
-			$data["mails_all"] = $count;
-			$data["mails_unread"] = $unread;
-			$data["mails_recent"] = $recent;
-			$data["mails_flagged"] = $flagged;
-			$data["mails_answered"] = $answered;
+			$data["entire_mailbox_total"] = $count;
+			$data["entire_mailbox_unread"] = $unread;
+			$data["entire_mailbox_recent"] = $recent;
+			$data["entire_mailbox_flagged"] = $flagged;
+			$data["entire_mailbox_answered"] = $answered;
 		} else {
 			echo "imap_list failed: " . imap_last_error() . "\n";
 		}
