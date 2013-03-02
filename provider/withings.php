@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/withings/wbs.php';
+require_once BASE_PATH . '/lib/withings/wbs.php';
 
 class WithingsProvider implements DataProvider {
 	private $config;

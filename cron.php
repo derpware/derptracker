@@ -1,14 +1,16 @@
 <?php
-require_once 'config.php';
-require_once 'lib/cosm/PachubeAPI.php';
-require_once 'DataProvider.interface.php';
+define("BASE_PATH", dirname(__FILE__));
 
-include('provider/foursquare.php');
-include('provider/trakt.php');
-include('provider/putio.php');
-include('provider/withings.php');
-include('provider/appnet.php');
-include('provider/mail.php');
+require_once BASE_PATH.'/config.php';
+require_once BASE_PATH.'/lib/cosm/PachubeAPI.php';
+require_once BASE_PATH.'/DataProvider.interface.php';
+
+include(BASE_PATH.'/provider/foursquare.php');
+include(BASE_PATH.'/provider/trakt.php');
+include(BASE_PATH.'/provider/putio.php');
+include(BASE_PATH.'/provider/withings.php');
+include(BASE_PATH.'/provider/appnet.php');
+include(BASE_PATH.'/provider/mail.php');
 
 
 function sendToCosm($data, $provider) {	

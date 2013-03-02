@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/trakt/trakt.php';
+require_once BASE_PATH . '/lib/trakt/trakt.php';
 
 class TraktProvider implements DataProvider {
 	private $config;

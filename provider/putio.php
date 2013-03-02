@@ -1,5 +1,5 @@
 <?php
-require_once 'lib/putio/PutIO/Autoloader.php';
+require_once BASE_PATH.'/lib/putio/PutIO/Autoloader.php';
 
 class PutioProvider implements DataProvider {
 	private $config;

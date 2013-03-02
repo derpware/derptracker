@@ -1,6 +1,6 @@
 <?php
-require_once 'lib/foursquare/EpiCurl.php';
-require_once 'lib/foursquare/EpiFoursquare.php';
+require_once BASE_PATH.'/lib/foursquare/EpiCurl.php';
+require_once BASE_PATH.'/lib/foursquare/EpiFoursquare.php';
 
 class FoursquareProvider implements DataProvider {
 	private $config;
