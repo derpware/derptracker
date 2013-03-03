@@ -11,6 +11,7 @@ include(BASE_PATH.'/provider/putio.php');
 include(BASE_PATH.'/provider/withings.php');
 include(BASE_PATH.'/provider/appnet.php');
 include(BASE_PATH.'/provider/mail.php');
+include(BASE_PATH.'/provider/github.php');
 
 
 function sendToCosm($data, $provider) {	

@@ -6,6 +6,8 @@ $cosm["feeds"]["trakt"] = "FEEDID";
 $cosm["feeds"]["putio"] = "FEEDID";
 $cosm["feeds"]["withings"] = "FEEDID";
 $cosm["feeds"]["appnet"] = "FEEDID";
+$cosm["feeds"]["mail"] = "FEEDID";
+$cosm["feeds"]["github"] = "FEEDID";
 
 // FOURSQUARE CONFIG
 $foursquare["active"] 		= FALSE;
@@ -40,3 +42,9 @@ $mail["active"]	= FALSE;
 $mail["mailbox"]	= "{mail.example.com:993/imap/ssl}";
 $mail["username"]	= "USERNAME";
 $mail["password"]	= "PASSWORD";
+
+// GITHUB CONFIG
+$github["active"] = FALSE;
+$github["username"] = "USERNAME";
+$github["password"] = "PASSWORD";
+
