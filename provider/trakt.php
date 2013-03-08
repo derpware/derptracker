@@ -1,21 +1,8 @@
 <?php
 require_once BASE_PATH . '/lib/trakt/trakt.php';
 
-class TraktProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $trakt;
-		$this->config = $trakt;
-	}
-	
-	function getName() {
-		return "trakt";
-	}
-	
-	function isActive() {
-		return $this->config["active"];
-	}
+class TraktProvider extends DataProvider {
+	protected $name = "trakt";
 	
 	function getData() {
 		$traktapi = new Trakt($this->config["apikey"]);

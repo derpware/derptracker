@@ -1,20 +1,7 @@
 <?php
 
-class MailProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $mail;
-		$this->config = $mail;
-	}
-	
-	function getName() {
-		return "mail";
-	}
-	
-	function isActive() {
-		return $this->config["active"];
-	}
+class MailProvider extends DataProvider {
+	protected $name = "mail";
 	
 	function getData() {
 		$data = array();

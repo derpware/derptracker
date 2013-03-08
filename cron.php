@@ -1,7 +1,10 @@
 <?php
 define("BASE_PATH", dirname(__FILE__));
 
-require_once BASE_PATH.'/config.php';
+require_once BASE_PATH.'/ConfigProvider.interface.php';
+require_once BASE_PATH.'/PHPFileConfig.class.php';
+ConfigProvider::create("PHPFileConfig");
+
 require_once BASE_PATH.'/lib/cosm/PachubeAPI.php';
 require_once BASE_PATH.'/DataProvider.interface.php';
 
@@ -15,7 +18,7 @@ include(BASE_PATH.'/provider/github.php');
 
 
 function sendToCosm($data, $provider) {	
-	global $cosm;
+	$cosm = ConfigProvider::getInstance()->get("cosm");
 	
 	foreach ($data as $item => $value) {
 		$streams[] = array("id" => "$item", "current_value" => "$value");
@@ -29,7 +32,7 @@ function sendToCosm($data, $provider) {
 }
 
 $providers = array_filter(get_declared_classes(), function($className) {
-	return in_array('DataProvider', class_implements($className));
+	return in_array('DataProvider', class_parents($className));
 });
 
 foreach ($providers as $provider_class) {

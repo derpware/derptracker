@@ -1,21 +1,8 @@
 <?php
 require_once BASE_PATH . '/lib/withings/wbs.php';
 
-class WithingsProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $withings;
-		$this->config = $withings;
-	}
-	
-	function getName() {
-		return "withings";
-	}
-		
-	function isActive() {
-		return $this->config["active"];
-	}
+class WithingsProvider extends DataProvider {
+	protected $name = "withings";
 	
 	function getData() {
 		global $withings;

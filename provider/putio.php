@@ -1,21 +1,8 @@
 <?php
 require_once BASE_PATH.'/lib/putio/PutIO/Autoloader.php';
 
-class PutioProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $putio;
-		$this->config = $putio;
-	}
-	
-	function getName() {
-		return "putio";
-	}
-		
-	function isActive() {
-		return $this->config["active"];
-	}
+class PutioProvider extends DataProvider {
+	protected $name = "putio";
 	
 	function getData() {
 		global $putio;

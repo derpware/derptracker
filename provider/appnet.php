@@ -1,19 +1,6 @@
 <?php
-class AppnetProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $appnet;
-		$this->config = $appnet;
-	}
-	
-	function getName() {
-		return "appnet";
-	}
-		
-	function isActive() {
-		return $this->config["active"];
-	}
+class AppnetProvider extends DataProvider {
+	protected $name = "appnet";
 	
 	function getData() {
 		global $appnet;

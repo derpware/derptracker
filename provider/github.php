@@ -1,20 +1,7 @@
 <?php
 
-class GithubProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $github;
-		$this->config = $github;
-	}
-	
-	function getName() {
-		return "github";
-	}
-	
-	function isActive() {
-		return $this->config["active"];
-	}
+class GithubProvider extends DataProvider {
+	protected $name = "github";
 	
 	function getData() {
 		$data = array();
@@ -40,4 +27,5 @@ class GithubProvider implements DataProvider {
 		$data["subscriptions"] = count($subscriptions);
 		return $data;
 	}
+	
 }

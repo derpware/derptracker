@@ -2,21 +2,8 @@
 require_once BASE_PATH.'/lib/foursquare/EpiCurl.php';
 require_once BASE_PATH.'/lib/foursquare/EpiFoursquare.php';
 
-class FoursquareProvider implements DataProvider {
-	private $config;
-	
-	function __construct() {
-		global $foursquare;
-		$this->config = $foursquare;
-	}
-	
-	function getName() {
-		return "foursquare";
-	}
-		
-	function isActive() {
-		return $this->config["active"];
-	}
+class FoursquareProvider extends DataProvider {
+	protected $name = "foursquare";
 	
 	function getData() {
 		global $foursquare;
@@ -36,4 +23,5 @@ class FoursquareProvider implements DataProvider {
 			);
 		return $data;
 	}
+
 }
