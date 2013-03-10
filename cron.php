@@ -6,7 +6,7 @@ require_once BASE_PATH.'/PHPFileConfig.class.php';
 ConfigProvider::create("PHPFileConfig");
 
 require_once BASE_PATH.'/lib/cosm/PachubeAPI.php';
-require_once BASE_PATH.'/DataProvider.interface.php';
+require_once BASE_PATH.'/DataProvider.class.php';
 
 include(BASE_PATH.'/provider/foursquare.php');
 include(BASE_PATH.'/provider/trakt.php');
