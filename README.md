@@ -4,11 +4,12 @@ The derptracker tracks all your derp data from all those derp post privacy servi
 ## Services
 Derp services this thing supports:
 * App.net
+* eMail (IMAP/POP3)
 * Foursquare
+* GitHub
 * put.io
 * trakt.tv
 * Withings
-* eMail (IMAP/POP3)
 
 ## Installation
 1. Download the code.
