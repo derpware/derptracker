@@ -18,7 +18,15 @@ include(BASE_PATH.'/provider/github.php');
 
 include(BASE_PATH.'/storage/CosmStorage.class.php');
 
-$cosm = new CosmStorage();
+
+$datastore_classes = array_filter(get_declared_classes(), function($className) {
+	return in_array('StorageProvider', class_parents($className));
+});
+
+$datastores = array();
+foreach ($datastore_classes as $datastore_class) {
+	$datastores[] = new $datastore_class();
+}
 
 $providers = array_filter(get_declared_classes(), function($className) {
 	return in_array('DataProvider', class_parents($className));
@@ -27,7 +35,9 @@ $providers = array_filter(get_declared_classes(), function($className) {
 foreach ($providers as $provider_class) {
 	$provider = new $provider_class();
 	if ($provider->isActive()) {
-		$cosm->putData($provider->getData(), $provider);
+		foreach ($datastores as $datastore) {
+			$datastore->putData($provider->getData(), $provider);
+		}
 	}
 }
 
