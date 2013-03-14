@@ -1,5 +1,6 @@
 <?php
 // COSM CONFIG
+$cosm["active"] = true;
 $cosm["apikey"]			= "APIKEY";
 $cosm["feeds"]["foursquare"] = "FEEDID";
 $cosm["feeds"]["trakt"] = "FEEDID";

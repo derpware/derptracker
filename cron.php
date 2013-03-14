@@ -30,7 +30,10 @@ $datastore_classes = array_filter(get_declared_classes(), function($className) {
 // Instanciate all storage providers
 $datastores = array();
 foreach ($datastore_classes as $datastore_class) {
-	$datastores[] = new $datastore_class();
+	$datastore = new $datastore_class();
+	if ($datastore->isActive()) {
+		$datastores[] = $datastore;
+	}
 }
 
 // find all data providers
