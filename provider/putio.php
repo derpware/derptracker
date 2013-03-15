@@ -22,12 +22,14 @@ class PutioProvider extends DataProvider {
 				$transfercount++;
 		}
 		$data = array(
-			"storage_avail" 	=> $info["disk"]["avail"],
-			"storage_used"		=> $info["disk"]["used"],
-			"storage_size"		=> $info["disk"]["size"],
-			"active_transfers" 	=> $transfercount,
-			"transfer_download" => $download,
-			"transfer_upload"	=> $upload,
+			"storage" => array(
+				"avail" 	=> $info["disk"]["avail"],
+				"used"		=> $info["disk"]["used"],
+				"size"		=> $info["disk"]["size"] ),
+			"transfers"	=> array(
+				"active"	=> $transfercount,
+				"download" => $download,
+				"upload"	=> $upload),
 			"friends"			=> count($friends)
 			);
 		return $data;

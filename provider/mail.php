@@ -12,15 +12,19 @@ class MailProvider extends DataProvider {
 		$quota = imap_get_quotaroot($mbox, "INBOX");
 		if (is_array($quota)) {
 			$storage = $quota['STORAGE'];
-			$data["quota_usage"] = $storage['usage'];
-			$data["quota_limit"] = $storage['limit'];
+			$data["quota"] = array(
+				"usage" => $storage['usage'],
+				"limit" => $storage['limit']
+			);
 		}
  
-		$data["inbox_total"] = imap_num_msg($mbox);
-		$data["inbox_unread"] = count(imap_search($mbox,'UNSEEN'));
-		$data["inbox_recent"] = imap_num_recent($mbox);
-		$data["inbox_flagged"] = count(imap_search($mbox,'FLAGGED'));
-		$data["inbox_answered"] = count(imap_search($mbox,'ANSWERED'));
+		$data["inbox"] = array(
+			"total" => imap_num_msg($mbox),
+			"unread" => count(imap_search($mbox,'UNSEEN')),
+			"recent" => imap_num_recent($mbox),
+			"flagged" => count(imap_search($mbox,'FLAGGED')),
+			"answered" => count(imap_search($mbox,'ANSWERED'))
+		);
  
  
 		$count = 0;
@@ -41,11 +45,13 @@ class MailProvider extends DataProvider {
 				$count += imap_num_msg($mbox);
 				$recent += imap_num_recent($mbox);
 			}
-			$data["entire_mailbox_total"] = $count;
-			$data["entire_mailbox_unread"] = $unread;
-			$data["entire_mailbox_recent"] = $recent;
-			$data["entire_mailbox_flagged"] = $flagged;
-			$data["entire_mailbox_answered"] = $answered;
+			$data["entire_mailbox"] = array(
+				"total" => $count,
+				"unread" => $unread,
+				"recent" => $recent,
+				"flagged" => $flagged,
+				"answered" => $answered
+			);
 		} else {
 			echo "imap_list failed: " . imap_last_error() . "\n";
 		}
