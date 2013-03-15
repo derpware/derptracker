@@ -21,6 +21,7 @@ include(BASE_PATH.'/provider/github.php');
 
 // Storage Providers
 include(BASE_PATH.'/storage/CosmStorage.class.php');
+include(BASE_PATH.'/storage/MongoStorage.class.php');
 
 // Find all storage providers
 $datastore_classes = array_filter(get_declared_classes(), function($className) {

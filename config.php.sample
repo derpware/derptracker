@@ -10,6 +10,9 @@ $cosm["feeds"]["appnet"] = "FEEDID";
 $cosm["feeds"]["mail"] = "FEEDID";
 $cosm["feeds"]["github"] = "FEEDID";
 
+// MONGODB CONFIG
+$mongodb["active"] = true;
+
 // FOURSQUARE CONFIG
 $foursquare["active"] 		= FALSE;
 $foursquare["clientID"] 	= "CLIENTID";
