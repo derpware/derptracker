@@ -6,11 +6,14 @@ abstract class StorageProvider {
 	
 	public abstract function putData($data, $provider);
 	
-	function __construct() {
+	public function __construct() {
 		$this->config = ConfigProvider::getInstance()->get($this->name);
+		$this->init();
 	}
 	
-	function getName() {
+	public function init() {}
+	
+	public function getName() {
 		return $this->name;
 	}
 	
