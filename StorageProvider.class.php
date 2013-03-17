@@ -2,12 +2,12 @@
 
 abstract class StorageProvider {
 	protected $config;
-	protected $name = "unknown";
+	protected static $name = "unknown";
 	
 	public abstract function putData($data, $provider);
 	
 	public function __construct() {
-		$this->config = ConfigProvider::getInstance()->get($this->name);
+		$this->config = ConfigProvider::getInstance()->get(static::$name);
 		$this->init();
 	}
 	
@@ -17,7 +17,8 @@ abstract class StorageProvider {
 		return $this->name;
 	}
 	
-	function isActive() {
-		return $this->config["active"];
+	public static function isActive() {
+		$config = ConfigProvider::getInstance()->get(static::$name);
+		return $config["active"];
 	}
 }

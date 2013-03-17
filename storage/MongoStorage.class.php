@@ -2,7 +2,8 @@
 
 class MongoDBStorage extends StorageProvider {
 
-	protected $name = "mongodb";
+	protected static $name = "mongodb";
+	
 	protected $mongo;
 	protected $db;
 
