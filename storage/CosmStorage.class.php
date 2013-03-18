@@ -6,7 +6,9 @@ class CosmStorage extends StorageProvider {
 
 	public function putData($data, $provider) {
 		foreach ($this->collapse($data) as $item => $value) {
-			$streams[] = array("id" => "$item", "current_value" => "$value");
+			if (!is_string($value) && is_numeric($value)) {
+				$streams[] = array("id" => "$item", "current_value" => "$value");
+			}
 		}
 
 		$cosm_data = array("datastreams" => $streams);
