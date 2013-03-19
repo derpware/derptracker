@@ -3,7 +3,7 @@
 class GithubProvider extends DataProvider {
 	protected $name = "github";
 	
-	function getData() {
+	protected function fetchData() {
 		$data = array();
 		
 		$json = file_get_contents("https://{$this->config["username"]}:{$this->config["password"]}@api.github.com/user");
@@ -25,7 +25,8 @@ class GithubProvider extends DataProvider {
 		$json = file_get_contents("https://{$this->config["username"]}:{$this->config["password"]}@api.github.com/user/subscriptions");
 		$subscriptions = json_decode($json);
 		$data["subscriptions"] = count($subscriptions);
-		return $data;
+		
+		$this->metadata = $data;
 	}
 	
 }

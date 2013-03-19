@@ -4,7 +4,7 @@ abstract class StorageProvider {
 	protected $config;
 	protected static $name = "unknown";
 	
-	public abstract function putData($data, $provider);
+	public abstract function putData($provider, $metadata, $rawdata);
 	
 	public function __construct() {
 		$this->config = ConfigProvider::getInstance()->get(static::$name);

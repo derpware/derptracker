@@ -7,11 +7,11 @@ class MongoDBStorage extends StorageProvider {
 	protected $mongo;
 	protected $db;
 
-	public function putData($data, $provider) {
+	public function putData($provider, $metadata, $rawdata) {
 		$provider = $provider->getName();
 		$collection = $this->db->$provider;
-		$data["_timestamp"] = new MongoDate();
-		$collection->insert($data);	
+		$metadata["_timestamp"] = new MongoDate();
+		$collection->insert($metadata);	
 	}
 
 	public function init(){

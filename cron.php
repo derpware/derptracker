@@ -47,7 +47,9 @@ foreach ($providers as $provider_class) {
 	$provider = new $provider_class();
 	if ($provider->isActive()) {
 		foreach ($datastores as $datastore) {
-			$datastore->putData($provider->getData(), $provider);
+			$meta = $provider->getMetaData();
+			$raw = $provider->getRawData();
+			$datastore->putData($provider, $meta, $raw);
 		}
 	}
 }

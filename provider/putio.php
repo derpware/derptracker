@@ -4,8 +4,7 @@ require_once BASE_PATH.'/lib/putio/PutIO/Autoloader.php';
 class PutioProvider extends DataProvider {
 	protected $name = "putio";
 	
-	function getData() {
-		global $putio;
+	protected function fetchData() {
 		
 		$putioapi = new PutIO\API($this->config["apikey"]);
 
@@ -21,7 +20,8 @@ class PutioProvider extends DataProvider {
 			if($transfer["status"] != "COMPLETED")
 				$transfercount++;
 		}
-		$data = array(
+		
+		$this->metadata = array(
 			"storage" => array(
 				"avail" 	=> $info["disk"]["avail"],
 				"used"		=> $info["disk"]["used"],
@@ -32,6 +32,5 @@ class PutioProvider extends DataProvider {
 				"upload"	=> $upload),
 			"friends"			=> count($friends)
 			);
-		return $data;
 	}
 }

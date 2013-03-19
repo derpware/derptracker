@@ -4,8 +4,7 @@ require_once BASE_PATH . '/lib/withings/wbs.php';
 class WithingsProvider extends DataProvider {
 	protected $name = "withings";
 	
-	function getData() {
-		global $withings;
+	protected function fetchData() {
 
 		$wbs = new wbs_Account();
 		$wbs->setUserEmail($this->config["mail"]);
@@ -18,12 +17,11 @@ class WithingsProvider extends DataProvider {
 		$group = $measuresgroups[0];
 		$measures = $group->getMeasures();
 
-		$data = array(
+		$this->metadata = array(
 			"weight" 			=> $measures[0]->getValue(),
 			"fat_free_mass"		=> $measures[1]->getValue(),
 			"fat_ratio"			=> $measures[2]->getValue(),
 			"fat_mass_weight" 	=> $measures[3]->getValue()
 			);
-		return $data;
 	}
 }

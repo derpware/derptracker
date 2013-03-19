@@ -3,7 +3,7 @@
 class MailProvider extends DataProvider {
 	protected $name = "mail";
 	
-	function getData() {
+	protected function fetchData() {
 		$data = array();
 		
 		$mbox = imap_open($this->config["mailbox"], $this->config["username"], $this->config["password"], OP_READONLY)
@@ -55,6 +55,7 @@ class MailProvider extends DataProvider {
 		} else {
 			echo "imap_list failed: " . imap_last_error() . "\n";
 		}
-		return $data;
+		
+		$this->metadata = $data;
 	}
 }

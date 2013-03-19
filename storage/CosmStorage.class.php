@@ -4,8 +4,8 @@ require_once BASE_PATH.'/lib/cosm/PachubeAPI.php';
 class CosmStorage extends StorageProvider {
 	protected static $name = "cosm";
 
-	public function putData($data, $provider) {
-		foreach ($this->collapse($data) as $item => $value) {
+	public function putData($provider, $metadata, $rawdata) {
+		foreach ($this->collapse($metadata) as $item => $value) {
 			if (!is_string($value) && is_numeric($value)) {
 				$streams[] = array("id" => "$item", "current_value" => "$value");
 			}

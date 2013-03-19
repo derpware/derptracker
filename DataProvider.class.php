@@ -4,17 +4,39 @@ abstract class DataProvider {
 	protected $config;
 	protected $name = "unknown";
 	
-	public abstract function getData();
+	protected $fetched = false;
+	protected $metadata = false;
+	protected $rawdata = false;
 	
-	function __construct() {
+	protected abstract function fetchData();
+	
+	public function __construct() {
 		$this->config = ConfigProvider::getInstance()->get($this->name);
 	}
 	
-	function getName() {
+	public function getName() {
 		return $this->name;
 	}
 	
-	function isActive() {
+	public function isActive() {
 		return $this->config["active"];
 	}
+	
+	private function _fetchData() {
+		if ($this->fetched !== true) {
+			$this->fetchData();
+			$this->fetched = true;
+		}
+	}
+	
+	public function getMetaData() {
+		$this->_fetchData();
+		return $this->metadata;
+	}
+	
+	public function getRawData() {
+		$this->_fetchData();
+		return $this->rawdata;
+	}
+	
 }
