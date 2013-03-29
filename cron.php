@@ -1,6 +1,9 @@
 <?php
 define("BASE_PATH", dirname(__FILE__));
 
+// Timeout: 2.5min
+set_time_limit(150);
+
 // Only allow one process at a time
 $lockfile = sys_get_temp_dir() .'/cron.pid';
 if (file_exists($lockfile)) {
