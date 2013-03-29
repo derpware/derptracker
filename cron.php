@@ -1,6 +1,16 @@
 <?php
 define("BASE_PATH", dirname(__FILE__));
 
+// Only allow one process at a time
+$lockfile = sys_get_temp_dir() .'/cron.pid';
+if (file_exists($lockfile)) {
+	$pid = file_get_contents($lockfile);
+	if (posix_getsid($pid) !== false) {
+		die();
+	}
+}
+file_put_contents($lockfile, getmypid());
+
 // Configuration storage
 require_once BASE_PATH.'/ConfigProvider.interface.php';
 require_once BASE_PATH.'/PHPFileConfig.class.php';
@@ -54,3 +64,4 @@ foreach ($providers as $provider_class) {
 	}
 }
 
+unlink($lockfile);
