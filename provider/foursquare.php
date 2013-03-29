@@ -13,12 +13,15 @@ class FoursquareProvider extends DataProvider {
 		$user = json_decode($checkin->responseText)->response->user;
 		
 		$this->metadata = array(
-			"checkins" 		=> json_decode($checkin->responseText)->response->user->checkins->count,
-			"mayorships" 	=> json_decode($checkin->responseText)->response->user->mayorships->count,
-			"friends"		=> json_decode($checkin->responseText)->response->user->friends->count,
-			"todos"			=> json_decode($checkin->responseText)->response->user->todos->count,
-			"latitude" => $user->checkins->items[0]->venue->location->lat,
-			"longitude" => $user->checkins->items[0]->venue->location->lng
+			"checkins" 		=> $user->checkins->count,
+			"mayorships" 	=> $user->mayorships->count,
+			"friends"		=> $user->friends->count,
+			"todos"			=> $user->todos->count,
+			"latitude" 		=> $user->checkins->items[0]->venue->location->lat,
+			"longitude" 	=> $user->checkins->items[0]->venue->location->lng
+			);
+		$this->rawdata = array(
+			"checkin"		=> $user->checkins->items[0]
 			);
 	}
 

@@ -10,6 +10,14 @@ class TraktProvider extends DataProvider {
 		
 		$profile = $traktapi->userProfile($this->config["username"]);
 
+		$watching = $profile["watching"];
+		if(empty($watching))
+			$watching = NULL;
+
 		$this->metadata = $profile["stats"];
+		$this->rawdata 	= array(
+			"watching"	=> $watching,
+			"watched"	=> $profile["watched"][0]
+			);
 	}
 }
